@@ -696,9 +696,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e20d88b4f215164aaeef7540661265e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageSelect: {fileID: 753771905043575037}
-  Option: {fileID: 8333217364408253907}
-  BuckTitle: {fileID: 4139898565622823801}
+  StageSelect: {fileID: 4931273248177306163}
+  Option: {fileID: 3120939211484716840}
+  BuckTitle: {fileID: 8152921203458397997}
   m_PoseKind: 0
 --- !u!1 &6526605411945146057
 GameObject:
