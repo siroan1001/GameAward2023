@@ -43,13 +43,9 @@ public class ReadJson : MonoBehaviour
         //--- jsonファイルの読み込み
         PrefabList list;
         LoadJsonFile(fileName, out list);
-
-        Debug.Log("RoadList" + list);
-
         //--- 読み込んだデータを基に処理
         foreach (PrefabData_Json prefab in list.m_prefabs)
         {
-            Debug.Log("a" + prefab.m_junkName);
             // ---データ作成
             JunkData_Json junk = new JunkData_Json();
             junk.m_junkName   = prefab.m_junkName;
@@ -65,12 +61,9 @@ public class ReadJson : MonoBehaviour
 	/// </summary>
 	static void LoadJsonFile<T>(string fileName, out T list)
     {
-        Debug.Log("a");
         //--- jsonファイルの読み込み
         string inputText = Resources.Load<TextAsset>(fileName).ToString();
-        Debug.Log(inputText);
         list = JsonUtility.FromJson<T>(inputText);  // 読み込んだデータをリスト化
-        Debug.Log("b");
     }
 
     /// <summary>

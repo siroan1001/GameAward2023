@@ -210,3 +210,4 @@ MonoBehaviour:
   m_StartPos: {x: 0, y: 0, z: 0}
   m_StartRot: {x: 0, y: 0, z: 0, w: 0}
   m_Origin: {fileID: 0}
+  m_Renderer: []

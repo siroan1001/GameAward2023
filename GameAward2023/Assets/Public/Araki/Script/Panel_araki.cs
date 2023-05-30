@@ -19,6 +19,6 @@ public class Panel_araki : MonoBehaviour
 
 	public Vector3 GetForwardDirect()
 	{
-		return transform.forward;
+		return -transform.forward;
 	}
 }

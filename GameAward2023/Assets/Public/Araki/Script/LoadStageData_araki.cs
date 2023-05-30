@@ -56,6 +56,7 @@ public static class LoadStageData_araki
 			//--- オブジェクトの子の情報を全て取得
 			IEnumerable<Transform> children = prefab.GetComponentsInChildren<Transform>(true);
 			int j = 0;
+            Debug.Log(prefab.transform.name);
 			foreach (Transform child in children)
 			{
 				//--- 座標

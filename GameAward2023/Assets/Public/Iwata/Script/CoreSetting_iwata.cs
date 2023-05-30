@@ -356,21 +356,27 @@ public class CoreSetting_iwata : ObjectBase
     /// </summary>
     public void CheckCanAttach()
     {
-        if(m_AttachFaces[m_SelectFaceNum].Trans.GetComponent<JankStatus>().CanColliderFlags(this.transform) && m_AttachJank.GetComponent<JankStatus>().CanCollisionFlags(this.transform))
+        Renderer[] renderers = m_AttachJank.GetComponent<JankBase_iwata>().Renderers;
+        if (m_AttachFaces[m_SelectFaceNum].Trans.GetComponent<JankStatus>().CanColliderFlags(this.transform) && m_AttachJank.GetComponent<JankStatus>().CanCollisionFlags(this.transform))
         {
-			//Debug.Log("できるよー");
-#if false
-		jank.GetComponent<Renderer>().material.SetInt("_CraftFlag", 1);
-#endif
-			m_CanAttach = true;
+            //Debug.Log("できるよー");
+            foreach (Renderer child in renderers)
+            {
+                child.material.SetInt("_CraftFlag", 1);
+            }
+
+            m_CanAttach = true;
         }
         else
         {
-			//Debug.Log("むりだよー");
-#if false
-		jank.GetComponent<Renderer>().material.SetInt("_CraftFlag", 0);
-#endif
-			m_CanAttach = false;
+            //Debug.Log("むりだよー");
+
+            foreach (Renderer child in renderers)
+            {
+                child.material.SetInt("_CraftFlag", 0);
+            }
+
+            m_CanAttach = false;
         }
     }
 
@@ -385,11 +391,15 @@ public class CoreSetting_iwata : ObjectBase
         m_AttachJank = jank;        //仮置きされているガラクタを登録
         m_AttachJank.GetComponent<JankBase_iwata>().SetJank(m_AttachFaces[m_SelectFaceNum].Trans);        //ガラクタの仮置きの処理
         CheckCanAttach();
-#if false
-		jank.GetComponent<Renderer>().material.SetInt("_ColorFlag", 1);
-		jank.GetComponent<Renderer>().material.SetInt("_CraftFlag", 1);
-#endif
-	}
+
+        Renderer[] renderers = m_AttachJank.GetComponent<JankBase_iwata>().Renderers;
+        foreach (Renderer child in renderers)
+        {
+            child.material.SetInt("_ColorFlag", 1);
+            //child.material.SetInt("_CraftFlag", 1);
+        }
+
+    }
 
     /// <summary>
     /// 仮置きしているオブジェクトを確定させる
@@ -404,14 +414,22 @@ public class CoreSetting_iwata : ObjectBase
             comp.connectedBody = m_AttachFaces[m_SelectFaceNum].Trans.GetComponent<Rigidbody>();
             comp.breakForce = m_BreakForce;
             m_AttachFaces[m_SelectFaceNum].Trans.GetComponent<JankStatus>().ConnectedChild = m_AttachJank;
+            Renderer[] renderers = m_AttachJank.GetComponent<JankBase_iwata>().Renderers;
+            foreach (Renderer child in renderers)
+            {
+                child.material.SetInt("_ColorFlag", 0);
+                //child.material.SetInt("_CraftFlag", 0);
+            }
             m_AttachJank = null;
             m_AttachFaces.Clear();
             m_SelectFaceNum = 0;
             Debug.Log("いいね");
-#if false
-		jank.GetComponent<Renderer>().material.SetInt("_ColorFlag", 0);
-		jank.GetComponent<Renderer>().material.SetInt("_CraftFlag", 0);
-#endif
+
+
+
+            //m_AttachJank.GetComponent<Renderer>().material.SetInt("_ColorFlag", 0);
+            //m_AttachJank.GetComponent<Renderer>().material.SetInt("_CraftFlag", 0);
+
 			AudioManager.PlaySE(AudioManager.SEKind.E_SE_KIND_ASSEMBLE);
             return true;
         }

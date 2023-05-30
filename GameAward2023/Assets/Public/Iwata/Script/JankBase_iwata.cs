@@ -7,6 +7,7 @@ public abstract class JankBase_iwata : JankStatus
     [SerializeField] Vector3 m_StartPos;      //開始時のポジション
     [SerializeField] Quaternion m_StartRot;      //開始時の回転
     [SerializeField] GameObject m_Origin;     //クローンなら元のオブジェクトを入れるよう
+    [SerializeField] Renderer[] m_Renderer;
 
     /// <summary>
     /// 各ジャンク特有の処理を行う
@@ -29,6 +30,7 @@ public abstract class JankBase_iwata : JankStatus
     {
         m_StartPos = transform.position;      //初期座標を登録
         m_StartRot = transform.rotation;      //初期回転を登録
+        m_Renderer = GetComponentsInChildren<Renderer>(true);
     }
 
     ///<summary>
@@ -157,4 +159,10 @@ public abstract class JankBase_iwata : JankStatus
         get { return m_Origin; }
         set { m_Origin = value; }
     }
+
+    public Renderer[] Renderers
+    {
+        get { return m_Renderer; }
+    }
+
 }

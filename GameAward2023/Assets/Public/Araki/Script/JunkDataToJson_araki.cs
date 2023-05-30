@@ -49,13 +49,15 @@ public class JunkDataToJson_araki : MonoBehaviour
 		string json = JsonUtility.ToJson(m_list);
 
 		// jsonファイルに書き込み(Resourcesファイルに格納)
+#if true
 		string filePath = Application.dataPath + "/Resources/" + m_fileName + ".json";
+#else
+		string filePath = Application.dataPath + "/Resources/StageData/" + m_fileName + ".json";
+#endif
 		sw = new StreamWriter(filePath, false);
 		sw.Write(json);
 		sw.Flush();
 		sw.Close();
-
-		Debug.Log("ファイルの出力に成功しました。");
 	}
 
 	// Update is called once per frame
