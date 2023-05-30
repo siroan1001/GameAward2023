@@ -136,6 +136,14 @@ public class PlayerController_iwata : MonoBehaviour
                     GameManager.GameStatus = GameManager.eGameStatus.E_GAME_STATUS_ROT;
                 }
                 break;
+
+            case GameManager.eGameStatus.E_GAME_STATUS_POUSE:
+                if (PadInput.GetKeyDown(KeyCode.JoystickButton1))
+                {
+                    GameManager.GameStatus = GameManager.LastGameStatus;
+                    GameManager.LastGameStatus = GameManager.eGameStatus.E_GAME_STATUS_POUSE;
+                }
+                break;
         }
 
         //オプションボタン

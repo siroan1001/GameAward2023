@@ -978,6 +978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334795163441943681}
+  - component: {fileID: 5003004349857412332}
   m_Layer: 5
   m_Name: CheckStageSelect
   m_TagString: Untagged
@@ -1010,6 +1011,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5003004349857412332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2482360405099102605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176c2b9ac45bc5946a8ffb37acca00dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Yes: {fileID: 5993901012936839468}
+  m_No: {fileID: 5056198874647496233}
+  m_Flag: 0
+  m_SceneName: Ito_StageSelectScene
+  m_MainPose: {fileID: 6942817335810393339}
 --- !u!1 &2782357926987658172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,6 +2411,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Yes: {fileID: 232680290726727300}
   m_No: {fileID: 5020494947367904892}
+  m_Flag: 0
+  m_SceneName: Ito_DemoScene
+  m_MainPose: {fileID: 6942817335810393339}
 --- !u!1 &5607762539579887961
 GameObject:
   m_ObjectHideFlags: 0

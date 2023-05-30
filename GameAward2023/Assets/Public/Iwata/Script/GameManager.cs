@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(m_DebugStage + "をよみこみます");
             LoadStageData_araki.SettingStageObjects(m_DebugStage + "Stage");
-            Debug.Log("あをよみこみます");
             LoadStageData_araki.SettingJunks(m_DebugStage + "Garakuta");
             PlayStage.gameObject.SetActive(false);
             m_Pose.gameObject.SetActive(false);
@@ -76,6 +75,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(m_GameStatus);
+
         if (m_GameStatus != m_lastGameStatus)
         {
             switch(m_lastGameStatus)

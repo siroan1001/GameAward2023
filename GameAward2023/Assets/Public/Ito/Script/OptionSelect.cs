@@ -61,7 +61,7 @@ public class OptionSelect : MonoBehaviour
                 ChangeActive();               
 
                 bgmSlider.value += AxisInput.GetAxisRawRepeat("Horizontal_PadX") * 0.2f;
-                AudioManager.BGMvolume = bgmSlider.value;
+                //AudioManager.BGMvolume = bgmSlider.value;
                 break;
 
             case 1:
@@ -69,7 +69,7 @@ public class OptionSelect : MonoBehaviour
                 ChangeActive();
 
                 SESlider.value += AxisInput.GetAxisRawRepeat("Horizontal_PadX") * 0.2f;
-                AudioManager.SEvolume = SESlider.value;
+                //AudioManager.SEvolume = SESlider.value;
                 break;
 
             case 2:

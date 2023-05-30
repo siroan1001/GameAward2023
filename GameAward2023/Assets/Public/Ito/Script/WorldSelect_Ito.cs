@@ -76,9 +76,9 @@ public class WorldSelect_Ito : MonoBehaviour
         Scene = "GameScene_v2.0";
 
         //ステージセレクトのimageの大きさの初期化
-        W3RectChange.SetSizeImage((int)stageNum - 1, 1.1f);
-        W2RectChange.SetSizeImage((int)stageNum - 1, 1.1f);
-        W1RectChange.SetSizeImage((int)stageNum - 1, 1.1f);
+        W3RectChange.SetSizeImage((int)stageNum - 1, 1.3f);
+        W2RectChange.SetSizeImage((int)stageNum - 1, 1.3f);
+        W1RectChange.SetSizeImage((int)stageNum - 1, 1.3f);
     }
 
     // Update is called once per frame
@@ -366,15 +366,15 @@ public class WorldSelect_Ito : MonoBehaviour
         switch (worldNum)
         {
             case WorldNum.World3:
-                W3RectChange.SetSizeImage((int)stageNum - 1, 1.1f);
+                W3RectChange.SetSizeImage((int)stageNum - 1, 1.3f);
                 W3RectChange.SetSizeImage((int)oldStageNum - 1, 1.0f);
                 break;
             case WorldNum.World2:
-                W2RectChange.SetSizeImage((int)stageNum - 1, 1.1f);
+                W2RectChange.SetSizeImage((int)stageNum - 1, 1.3f);
                 W2RectChange.SetSizeImage((int)oldStageNum - 1, 1.0f);
                 break;
             case WorldNum.World1:
-                W1RectChange.SetSizeImage((int)stageNum - 1, 1.1f);
+                W1RectChange.SetSizeImage((int)stageNum - 1, 1.3f);
                 W1RectChange.SetSizeImage((int)oldStageNum - 1, 1.0f);
                 break;
         }

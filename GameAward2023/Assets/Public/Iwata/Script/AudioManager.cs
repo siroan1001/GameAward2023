@@ -134,7 +134,6 @@ public class AudioManager : MonoBehaviour
 
     public static void PlaySE(SEKind index)
     {
-        Debug.Log((int)index + ":" + seSource[(int)index].name);
         seSource[(int)index].Play();
     }
 
