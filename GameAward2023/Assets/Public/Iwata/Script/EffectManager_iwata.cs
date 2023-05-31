@@ -71,7 +71,6 @@ public class EffectManager_iwata : MonoBehaviour
         if (effectInfo != null)
         {
             GameObject effectInstance = Instantiate(effectInfo.effectPrefab, position, Quaternion.identity);
-            Debug.Log(size);
             if(size != default) effectInstance.transform.localScale = size;
             effectInstance.transform.parent = parent;
         }

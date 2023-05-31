@@ -5,7 +5,7 @@ using UnityEngine;
 public class Robot_araki : MonoBehaviour
 {
 	Vector3 forwardDirect;
-	float rayCastDistance = 1.0f;
+	float rayCastDistance = 5.0f;
 	[SerializeReference] float moveSpeed = 0.05f;
 	Transform lastHit;
 
@@ -20,15 +20,16 @@ public class Robot_araki : MonoBehaviour
 	private void Update()
 	{
 		//--- パネルを踏んだ時の処理
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, -transform.up, out hit, rayCastDistance))
+		Ray ray = new Ray(transform.position + transform.up.normalized * 3.0f, -transform.up);
+		RaycastHit[] hits = Physics.RaycastAll(ray);
+		for(int i = 0; i < hits.Length; i++)
 		{
-			//--- 前に踏んだパネルは処理しない
-			if (lastHit == hit.transform) return;
-			lastHit = hit.transform;
+			Panel_araki panel = hits[i].transform.gameObject.GetComponent<Panel_araki>();
+			if (panel == null) continue;
 
-			Panel_araki panel = hit.collider.GetComponent<Panel_araki>();
-			if (panel == null) return;
+			//--- 前に踏んだパネルは処理しない
+			if (lastHit == hits[i].transform) return;
+			lastHit = hits[i].transform;
 
 			// パネルによって進行方向を更新
 			Vector3 vPanel = panel.GetForwardDirect() * moveSpeed;
@@ -38,7 +39,9 @@ public class Robot_araki : MonoBehaviour
 			float rotY = transform.rotation.y;
 			transform.Rotate(0.0f, rotY - dot * 180.0f, 0.0f);
 
-			forwardDirect = vPanel;	// ベクトルを更新
+			forwardDirect = vPanel; // ベクトルを更新
+
+			break;
 		}
 	}
 
