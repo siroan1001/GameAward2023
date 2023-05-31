@@ -24,11 +24,8 @@ public class CursorController_araki : ObjectBase
     float axisX = 0.0f;
     float axisY = 0.0f;
 	bool m_isHighSpeed = false;
-<<<<<<< HEAD
     E_RAY_HIT_STATE m_state;
-=======
-	E_RAY_HIT_STATE m_state;
->>>>>>> main
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,16 +43,9 @@ public class CursorController_araki : ObjectBase
         if (GameManager.GameStatus != GameManager.eGameStatus.E_GAME_STATUS_JOINT) return;
 		if (m_jointStageManager.JSStatus == JointStageManager.eJointStageStatus.E_JOINTSTAGE_STATUS_PUT) return;
 
-<<<<<<< HEAD
         //--- プレビュー用ガラクタを生成
         m_state = CheckRayHitState();
         switch (m_state)
-=======
-		//--- プレビュー用ガラクタを生成
-		m_state = CheckRayHitState();
-		Debug.Log(m_state);
-		switch (m_state)
->>>>>>> main
 		{
 			case E_RAY_HIT_STATE.ENTER: // 指した瞬間
 				m_previreCamera.StartNoise();	// ノイズ開始
@@ -243,16 +233,8 @@ public class CursorController_araki : ObjectBase
 		m_previewJunk = null;
 	}
 
-<<<<<<< HEAD
-    public E_RAY_HIT_STATE state
-    {
-        get { return m_state; }
-    }
-
-=======
 	public E_RAY_HIT_STATE state
 	{
 		get { return m_state; }
 	}
->>>>>>> main
 }
